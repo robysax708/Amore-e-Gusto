@@ -1,0 +1,320 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #4f4f4f; /* Marrom acinzentado escuro para texto */
+    background-color: #FDFBF5; /* Creme muito claro como base */
+}
+
+/* Paleta de Cores */
+:root {
+    --cream: #FDFBF5; /* Base */
+    --light-brown: #E0D8C0; /* Marrom claro / Bege acinzentado */
+    --accent-brown: #6b4f4f; /* Marrom mais escuro para detalhes/texto */
+    --white: #FFFFFF;
+    --neutral-gray: #f8f8f8; /* Cinza claro para fundos alternados */
+}
+
+/* Header */
+header {
+    background-color: var(--white);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    /* Espaço amplo para a logo */
+    min-width: 200px; /* Ajuste conforme necessário */
+    min-height: 100px; /* Ajuste conforme necessário */
+    display: flex;
+    align-items: center;
+}
+
+#logo-placeholder {
+    width: 200px; /* Largura fixa do placeholder */
+    height: 100px; /* Altura fixa do placeholder */
+}
+
+/* H1 removido em favor do SVG, mas pode ser estilizado se usado */
+/* header h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    font-size: 2.5rem;
+    font-weight: bold;
+} */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--accent-brown);
+    font-weight: bold;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--light-brown);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--light-brown);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* Hero Section */
+#hero {
+    background: url('https://images.unsplash.com/photo-1567197788910-623104688c11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Z2VsYXRvLGl0YWxpYW4scGFzdGVsfHx8fHx8MTcxNjM0MDM3MQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080') no-repeat center center/cover;
+    /* Fallback background color */
+    background-color: var(--light-brown);
+    color: var(--white);
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Para o overlay */
+}
+
+#hero::before { /* Overlay escuro para legibilidade */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+
+#hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#hero p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Content Sections */
+.content-section {
+    padding: 4rem 10%;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-brown);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline effect for section titles */
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--light-brown);
+    margin: 0.5rem auto 0; /* Centraliza a linha */
+}
+
+
+.content-section p, .content-section ul {
+    max-width: 800px;
+    margin: 0 auto 1rem auto;
+    text-align: left; /* Alinha o texto principal à esquerda para melhor leitura */
+    font-size: 1.1rem;
+    color: #555;
+}
+.content-section ul {
+     list-style-position: inside;
+     padding-left: 1rem; /* Adiciona um pouco de recuo */
+}
+.content-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Alternate Background */
+.alt-bg {
+    background-color: var(--neutral-gray); /* Cinza bem claro */
+}
+#about.alt-bg, #history.alt-bg, #contact.alt-bg {
+     background-color: #F5F5DC; /* Beige */
+}
+
+
+/* Menu Section Specifics */
+#menu h2::after {
+    background-color: var(--accent-brown); /* Cor diferente para destacar */
+}
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto 0 auto;
+    text-align: left;
+}
+
+.menu-item {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.menu-item h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.menu-item p {
+    font-size: 1rem;
+    color: #666;
+    max-width: none; /* Reset max-width for menu items */
+    margin-bottom: 0; /* Reset margin for menu items */
+}
+
+/* Contact Section */
+#contact p {
+    text-align: center; /* Centraliza texto no contato */
+}
+#contact strong {
+    color: var(--accent-brown);
+}
+
+/* Footer */
+footer {
+    background-color: var(--light-brown);
+    color: var(--accent-brown);
+    text-align: center;
+    padding: 2rem 5%;
+    margin-top: 3rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .logo-container {
+        margin-bottom: 1rem;
+        min-width: 150px;
+        min-height: 75px;
+    }
+    #logo-placeholder {
+        width: 150px;
+        height: 75px;
+    }
+    #logo-placeholder text {
+        font-size: 16px;
+        y: 45;
+    }
+
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem; /* Ajuste o espaçamento */
+    }
+    nav a {
+        padding: 0.3rem 0;
+        font-size: 0.9rem;
+    }
+
+
+    #hero {
+        height: 40vh;
+    }
+
+    #hero h2 {
+        font-size: 2.5rem;
+    }
+
+    #hero p {
+        font-size: 1.1rem;
+    }
+
+    .content-section {
+        padding: 3rem 5%;
+    }
+
+    .content-section h2 {
+        font-size: 2rem;
+    }
+
+     .content-section p, .content-section ul {
+        font-size: 1rem;
+     }
+
+    .menu-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}
+
+
