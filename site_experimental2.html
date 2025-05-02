@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amore e Gusto | O Luxo da Tradição Italiana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F5F0E6',
+                        lightbrown: '#D7C9AA',
+                        mediumbrown: '#A68A64',
+                        darkbrown: '#5C4B3D',
+                        ivory: '#FFFDF7',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(92, 75, 61, 0.5), rgba(92, 75, 61, 0.5)), url('https://images.unsplash.com/photo-1551024506-0eccf6f3f59b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .flavor-card {
+            transition: all 0.3s ease;
+        }
+        
+        .flavor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .review-card {
+            background: linear-gradient(135deg, #F5F0E6 0%, #FFFDF7 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #A68A64;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            background-color: #F5F0E6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            border: 2px solid #A68A64;
+        }
+        
+        .logo-text {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-cream font-serif text-darkbrown">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-cream shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="logo-container">
+                        <!-- Espaço para logo -->
+                        <span class="text-2xl font-bold text-darkbrown">A&G</span>
+                    </div>
+                    <div class="text-3xl font-bold italic logo-text">
+                        <span class="text-mediumbrown">Amore</span>
+                        <span class="text-darkbrown">e Gusto</span>
+                    </div>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#historia" class="nav-link">Nossa História</a>
+                    <a href="#objetivo" class="nav-link">Nosso Objetivo</a>
+                    <a href="#produtos" class="nav-link">Nossos Sabores</a>
+                    <a href="#galeria" class="nav-link">Galeria</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                    <a href="#reviews" class="nav-link">Avaliações</a>
+                </nav>
+                
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-darkbrown focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 nav-link">Home</a>
+                <a href="#historia" class="block py-2 nav-link">Nossa História</a>
+                <a href="#objetivo" class="block py-2 nav-link">Nosso Objetivo</a>
+                <a href="#produtos" class="block py-2 nav-link">Nossos Sabores</a>
+                <a href="#galeria" class="block py-2 nav-link">Galeria</a>
+                <a href="#contato" class="block py-2 nav-link">Contato</a>
+                <a href="#reviews" class="block py-2 nav-link">Avaliações</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center text-center text-ivory">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Amore e Gusto</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">O luxo da tradição italiana em cada detalhe</p>
+            <a href="#produtos" class="inline-block bg-mediumbrown hover:bg-darkbrown text-ivory px-8 py-3 rounded-full transition duration-300 animate-fade-in" style="animation-delay: 0.6s;">Conheça nossos sabores</a>
+        </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section id="historia" class="py-20 bg-ivory">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Nossa História</h2>
+                <div class="w-24 h-1 bg-mediumbrown mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1589302168068-964664b1e594?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Casais antigos com gelato" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6 text-darkbrown">Uma Jornada de Amor e Sabor</h3>
+                    <p class="text-lg mb-6">Tudo começou na Itália, no início do século XX, quando um jovem simples se apaixonou por uma jovem de família tradicional. Eles vinham de mundos diferentes, mas compartilhavam algo essencial: o apreço pelas coisas feitas com cuidado, pelo sabor e, acima de tudo, pelo amor.</p>
+                    <p class="text-lg mb-6">A cada encontro, era ela quem preparava um gelato especial para a sobremesa. Para ela, o gelato era mais do que um doce — era uma forma de expressar carinho, de celebrar os momentos juntos. Inspirado por esses gestos, o jovem aprimorou a receita e a batizou de Amore e Gusto, em homenagem ao sentimento que crescia entre eles e à importância de saborear a vida com quem se ama.</p>
+                    <p class="text-lg mb-6">Com o tempo, essa jovem se tornou a avó da "nonna", que herdou o costume e fez da receita uma tradição familiar. Nos almoços de domingo, logo após o casamento de cada novo casal da família, era tradição servir o gelato como símbolo de boas-vindas e união. A "nonna" também acrescentava um toque especial a cada sabor, criando versões únicas para cada casal. Mesmo diante de dificuldades, a família manteve viva essa tradição, movida pelo amor, dedicação e respeito às suas origens.</p>
+                    <div class="flex items-center mt-8">
+                        <div class="mr-4 text-mediumbrown">
+                            <i class="fas fa-heart text-3xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Uma Jornada para o Brasil</h4>
+                            <p>Com o passar das décadas, dificuldades econômicas e sociais fizeram com que a família emigrar para o Brasil. Trouxeram na bagagem o que tinham de mais precioso: suas memórias, seus valores e a receita da "nonna".</p>
+                            <p class="mt-2">Em solo brasileiro, enfrentaram novos desafios, mas continuaram produzindo o gelato de forma artesanal, como tinham aprendido. O cuidado no preparo e o sabor autêntico logo conquistaram os vizinhos e feiras locais. O que começou como uma forma de sustento virou um negócio de família.</p>
+                            <p class="mt-2">Nasceu assim a Amore e Gusto, uma marca que simboliza laços familiares, tradição e um gelato que carrega em cada colherada o verdadeiro gosto do amor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosso Objetivo -->
+    <section id="objetivo" class="py-20 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Nosso Objetivo</h2>
+                <div class="w-24 h-1 bg-mediumbrown mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1603569283844-9a43001b5d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gelato artesanal" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6 text-darkbrown">Preservar a Tradição com Excelência</h3>
+                    <p class="text-lg mb-6">Nosso propósito vai além de servir gelato. Queremos manter viva a tradição italiana de produção artesanal, utilizando apenas ingredientes nobres e técnicas que respeitam o tempo necessário para cada etapa do processo.</p>
+                    <p class="text-lg mb-6">Cada sabor que criamos é uma homenagem à nossa história familiar e à cultura italiana que nos inspira. Buscamos não apenas satisfazer, mas surpreender e emocionar através da qualidade e autenticidade de nossos produtos.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start">
+                            <div class="mr-4 text-mediumbrown">
+                                <i class="fas fa-leaf text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Ingredientes Selecionados</h4>
+                                <p>Utilizamos apenas ingredientes premium, muitos importados diretamente da Itália</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-mediumbrown">
+                                <i class="fas fa-clock text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Processo Artesanal</h4>
+                                <p>Respeitamos o tempo necessário para cada etapa de produção</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-mediumbrown">
+                                <i class="fas fa-heart text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Tradição Familiar</h4>
+                                <p>Receitas que atravessaram gerações com o mesmo cuidado e amor</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-mediumbrown">
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Excelência</h4>
+                                <p>Buscamos a perfeição em cada detalhe, do sabor à apresentação</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossos Produtos -->
+    <section id="produtos" class="py-20 bg-ivory">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Nossos Sabores</h2>
+                <div class="w-24 h-1 bg-mediumbrown mx-auto"></div>
+                <p class="mt-6 max-w-2xl mx-auto text-lg">Descubra nossa seleção premium de gelatos artesanais, preparados diariamente com técnicas tradicionais.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Sabor 1 -->
+                <div class="flavor-card bg-cream rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1603569283844-9a43001b5d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Pistacchio</h3>
+                        <p class="text-mediumbrown mb-4">O verdadeiro pistache siciliano</p>
+                        <p class="mb-4">Cremoso e intenso, feito exclusivamente com pistache de Bronte, considerado o melhor do mundo.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span class="ml-2 text-sm">Mais pedido</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sabor 2 -->
+                <div class="flavor-card bg-cream rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Nocciola Piemonte</h3>
+                        <p class="text-mediumbrown mb-4">Avelãs selecionadas</p>
+                        <p class="mb-4">Avelãs premium da região de Piemonte, torradas e moídas na hora para um sabor incomparável.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400 mr-1"></i>
+                            <span class="ml-2 text-sm">Premium</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sabor 3 -->
+                <div class="flavor-card bg-cream rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Fragola Fresca</h3>
+                        <p class="text-mediumbrown mb-4">Sorbetto refrescante</p>
+                        <p class="mb-4">Morangos frescos da estação, colhidos no ponto perfeito de maturação para um sabor vibrante e natural.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="far fa-star text-yellow-400 mr-1"></i>
+                            <span class="ml-2 text-sm">Sazonal</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sabor 4 -->
+                <div class="flavor-card bg-cream rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Cioccolato Fondente</h3>
+                        <p class="text-mediumbrown mb-4">Chocolate amargo belga</p>
+                        <p class="mb-4">Notas profundas de cacau em um gelato intenso e sofisticado, feito com chocolate belga de alta qualidade.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span class="ml-2 text-sm">Clássico</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sabor 5 -->
+                <div class="flavor-card bg-cream rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Limone Siciliano</h3>
+                        <p class="text-mediumbrown mb-4">Sorbetto vibrante</p>
+                        <p class="mb-4">O frescor cítrico do limão siciliano em um sorbetto que equilibra perfeitamente doçura e acidez.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400 mr-1"></i>
+                            <span class="ml-2 text-sm">Refrescante</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sabor 6 -->
+                <div class="flavor-card bg-cream rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Vaniglia</h3>
+                        <p class="text-mediumbrown mb-4">A pureza da baunilha</p>
+                        <p class="mb-4">Favas de baunilha de Madagascar em sua forma mais cremosa e aromática, um clássico atemporal.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="far fa-star text-yellow-400 mr-1"></i>
+                            <span class="ml-2 text-sm">Essência</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <p class="text-lg mb-6">Temos mais de 30 sabores rotativos em nosso menu, incluindo opções veganas e sem lactose.</p>
+                <a href="#contato" class="inline-block border-2 border-mediumbrown text-mediumbrown hover:bg-mediumbrown hover:text-ivory px-8 py-3 rounded-full transition duration-300">Visite-nos para experimentar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="py-20 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Nossa Galeria</h2>
+                <div class="w-24 h-1 bg-mediumbrown mx-auto"></div>
+                <p class="mt-6 max-w-2xl mx-auto text-lg">Conheça nosso ambiente e os momentos especiais que criamos</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Foto 1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551024506-0eccf6f3f59b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ambiente da sorveteria" class="gallery-img">
+                </div>
+                
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Gelato de limão" class="gallery-img">
+                </div>
+                
+                <!-- Foto 3 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Gelato de morango" class="gallery-img">
+                </div>
+                
+                <!-- Foto 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gelato de chocolate" class="gallery-img">
+                </div>
+                
+                <!-- Foto 5 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gelato de baunilha" class="gallery-img">
+                </div>
+                
+                <!-- Foto 6 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1603569283844-9a43001b5d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gelato de pistache" class="gallery-img">
+                </div>
+                
+                <!-- Foto 7 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c19e4d1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Preparo artesanal" class="gallery-img">
+                </div>
+                
+                <!-- Foto 8 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1589302168068-964664b1e594?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tradição familiar" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-20 bg-darkbrown text-ivory">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Nosso Espaço</h2>
+                <div class="w-24 h-1 bg-lightbrown mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <h3 class="text-3xl font-bold mb-6">Venha nos Visitar</h3>
+                    <p class="text-lg mb-8">Nosso ambiente foi cuidadosamente projetado para transportar você para uma autêntica gelateria italiana, com detalhes que celebram a tradição e o conforto.</p>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-lightbrown"></i>
+                            Endereço
+                        </h4>
+                        <p>Rua Barão de Itapura, 123 - Cambuí<br>Campinas - SP</p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-clock mr-3 text-lightbrown"></i>
+                            Horário de Funcionamento
+                        </h4>
+                        <p>Segunda a Sexta: 12h às 22h<br>Sábado e Domingo: 10h às 23h</p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-phone mr-3 text-lightbrown"></i>
+                            Contato
+                        </h4>
+                        <p>(19) 9876-5432<br>contato@amoreegusto.com.br</p>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#" class="w-10 h-10 rounded-full bg-lightbrown hover:bg-mediumbrown flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-lightbrown hover:bg-mediumbrown flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-lightbrown hover:bg-mediumbrown flex items-center justify-center transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-xl h-96">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.328647570266!2d-47.06090872476318!3d-22.90270313789496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c8b0a39a7c0d%3A0x2d8b1a5e1a5e1a5e!2sRua%20Bar%C3%A3o%20de%20Itapura%2C%20123%20-%20Cambu%C3%AD%2C%20Campinas%20-%20SP%2C%2013012-010!5e0!3m2!1spt-BR!2sbr!4v1629839397599!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="py-20 bg-ivory">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">O Que Dizem Nossos Clientes</h2>
+                <div class="w-24 h-1 bg-mediumbrown mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="review-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-lightbrown flex items-center justify-center text-darkbrown font-bold mr-4">AM</div>
+                        <div>
+                            <h4 class="font-bold">Ana Maria</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"O Pistacchio é simplesmente divino! A textura cremosa e o sabor autêntico me transportaram direto para a Sicília. Sem dúvida o melhor gelato que já provei no Brasil."</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="review-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-lightbrown flex items-center justify-center text-darkbrown font-bold mr-4">CR</div>
+                        <div>
+                            <h4 class="font-bold">Carlos Roberto</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Frequento a Itália regularmente a trabalho e posso afirmar: o gelato da Amore e Gusto é tão bom quanto os melhores que já provei em Roma e Florença. A atenção aos detalhes é impressionante."</p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="review-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-lightbrown flex items-center justify-center text-darkbrown font-bold mr-4">JS</div>
+                        <div>
+                            <h4 class="font-bold">Juliana Santos</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Adorei o Limone Siciliano! O frescor cítrico é perfeito para os dias quentes. O ambiente é sofisticado e acolhedor, perfeito para encontros especiais."</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <p class="text-lg mb-6">Mais de 500 avaliações 5 estrelas em nossas redes sociais</p>
+                <a href="#contato" class="inline-block bg-mediumbrown hover:bg-darkbrown text-ivory px-8 py-3 rounded-full transition duration-300">Deixe sua avaliação</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkbrown text-ivory py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="logo-container">
+                            <span class="text-2xl font-bold text-darkbrown">A&G</span>
+                        </div>
+                        <div class="text-3xl font-bold italic logo-text">
+                            <span class="text-lightbrown">Amore</span>
+                            <span class="text-ivory">e Gusto</span>
+                        </div>
+                    </div>
+                    <p class="max-w-xs">O luxo da tradição italiana em cada detalhe desde 1990.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lightbrown mb-4">Navegação</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="hover:text-lightbrown transition duration-300">Home</a></li>
+                            <li><a href="#historia" class="hover:text-lightbrown transition duration-300">Nossa História</a></li>
+                            <li><a href="#objetivo" class="hover:text-lightbrown transition duration-300">Nosso Objetivo</a></li>
+                            <li><a href="#produtos" class="hover:text-lightbrown transition duration-300">Nossos Sabores</a></li>
+                            <li><a href="#galeria" class="hover:text-lightbrown transition duration-300">Galeria</a></li>
+                            <li><a href="#contato" class="hover:text-lightbrown transition duration-300">Contato</a></li>
+                            <li><a href="#reviews" class="hover:text-lightbrown transition duration-300">Avaliações</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lightbrown mb-4">Contato</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2 text-lightbrown"></i>
+                                Rua Barão de Itapura, 123
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone mr-2 text-lightbrown"></i>
+                                (19) 9876-5432
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-2 text-lightbrown"></i>
+                                contato@amoreegusto.com.br
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lightbrown mb-4">Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-lightbrown hover:bg-mediumbrown flex items-center justify-center transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-lightbrown hover:bg-mediumbrown flex items-center justify-center transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-lightbrown hover:bg-mediumbrown flex items-center justify-center transition duration-300">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-mediumbrown mt-12 pt-8 text-center">
+                <p>&copy; 2023 Amore e Gusto. Todos os direitos reservados.</p>
+                <p class="mt-2">Produzido por: Robyy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.flavor-card, .review-card, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate-fade-in');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
